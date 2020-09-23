@@ -94,13 +94,13 @@ class Basket
      */
     public function checkout(): void
     {
-        $builder = new BasketBuilder();
-        $builder = $builder->setCard(new Card())
-                            ->setDiscount(new NullObject())
-                            ->setEmail(new Email())
-                            ->setUser(new Security($this->session));
-        
-        $this->checkoutProcess($builder);
+            $builder = new BasketBuilder();
+            $builder = $builder->setCard(new Card())
+                                ->setDiscount(new NullObject())
+                                ->setEmail(new Email())
+                                ->setUser(new Security($this->session));
+
+            $this->checkoutProcess($builder);
 
 
 
