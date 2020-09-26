@@ -94,31 +94,35 @@ class Basket
      */
     public function checkout(): void
     {
-        $builder = new BasketBuilder();
-        $builder = $builder->setCard(new Card())
-                            ->setDiscount(new NullObject())
-                            ->setEmail(new Email())
-                            ->setUser(new Security($this->session));
-        
-        $this->checkoutProcess($builder);
+            $builder = new BasketBuilder();
+            $builder = $builder->setCard(new Card())
+                                ->setDiscount(new NullObject())
+                                ->setEmail(new Email())
+                                ->setUser(new Security($this->session));
+
+//            $this->checkoutProcess($builder);
 
 
 
 
-        // Здесь должна быть некоторая логика выбора способа платежа
-        $billing = new Card();
+//        // Здесь должна быть некоторая логика выбора способа платежа
+//        $billing = new Card();
+//
+//        // Здесь должна быть некоторая логика получения информации о скидке
+//        // пользователя
+//        $discount = new NullObject();
+//
+//        // Здесь должна быть некоторая логика получения способа уведомления
+//        // пользователя о покупке
+//        $communication = new Email();
+//
+//        $security = new Security($this->session);
 
-        // Здесь должна быть некоторая логика получения информации о скидке
-        // пользователя
-        $discount = new NullObject();
-
-        // Здесь должна быть некоторая логика получения способа уведомления
-        // пользователя о покупке
-        $communication = new Email();
-
-        $security = new Security($this->session);
-
+        //        сюда должен передаваться построенный билдер
+//        $this->checkoutProcess($builder);
         $this->checkoutProcess($discount, $billing, $security, $communication);
+
+
     }
 
     /**
@@ -132,6 +136,7 @@ class Basket
      * @throws CommunicationException
      */
     public function checkoutProcess(
+//        здесь должен прииматься билдер и из него дергать все свойства
         DiscountInterface $discount,
         BillingInterface $billing,
         SecurityInterface $security,

@@ -37,17 +37,17 @@ class ProductRepository
      */
     public function fetchAll(): array
     {
-        $productList = [];
-        $product = new Product(1,'test', 100);
-        foreach ($this->getDataFromSource() as $item) {
-            $cloneProduct = clone $product;
-            $cloneProduct->setId($item['id']);
-            $cloneProduct->setName($item['name']);
-            $cloneProduct->setPrice($item['price']);
-            $productList[] = $cloneProduct;
-        }
+            $productList = [];
+            $product = new Product(1,'test', 100);
+            foreach ($this->getDataFromSource() as $item) {
+                $cloneProduct = clone $product;
+                $cloneProduct->setId($item['id']);
+                $cloneProduct->setName($item['name']);
+                $cloneProduct->setPrice($item['price']);
+                $productList[] = $cloneProduct;
+            }
 
-        return $productList;
+            return $productList;
     }
 
     /**
