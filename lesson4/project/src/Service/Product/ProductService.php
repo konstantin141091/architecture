@@ -34,7 +34,16 @@ class ProductService
         // $sortType === 'price'; // Сортировка по цене
         // $sortType === 'name'; // Сортировка по имени
 
-        return $productList;
+
+        if ($sortType === 'price') {
+            $productList = (new ProductSort(\PriceComparator::class))->sort($productList);
+        } elseif ($sortType === 'name') {
+            $productList = (new ProductSort(\NameComparator::class))->sort($productList);
+        } else {
+            return $productList;
+        }
+
+
     }
 
     /**

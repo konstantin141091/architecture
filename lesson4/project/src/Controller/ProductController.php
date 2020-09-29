@@ -56,4 +56,5 @@ class ProductController extends BaseController
             ['productList' => $productList]
         );
     }
+
 }
